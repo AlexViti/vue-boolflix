@@ -4,7 +4,10 @@
 
 <script>
 export default {
-  name: 'MainBoolflix'
+  name: 'MainBoolflix',
+  props: {
+    searchInput: String
+  }
 }
 </script>
 

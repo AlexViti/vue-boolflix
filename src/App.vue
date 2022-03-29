@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <header-boolflix />
-    <main-boolflix />
+    <header-boolflix
+      @set-search-input="setSearchInput" />
+    <main-boolflix
+      :search-input="searchInput" />
   </div>
 </template>
 
@@ -14,6 +16,14 @@ export default {
   components: {
     HeaderBoolflix,
     MainBoolflix
+  },
+  data: () => ({
+    searchInput: ''
+  }),
+  methods: {
+    setSearchInput(value) {
+      this.searchInput = value
+    }
   }
 }
 </script>

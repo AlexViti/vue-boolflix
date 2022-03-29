@@ -1,6 +1,8 @@
 <template>
 <header>
   <img :src="logo" alt="">
+  <input v-model="searchInput" @keyup.enter="setSearch" type="text" name="search" id="search">
+  <button @click="setSearch">Search</button>
 </header>
 </template>
 
@@ -8,10 +10,14 @@
 import logo from '../assets/boolflix.png'
 
 export default {
-  name: 'HeaderVue',
-  data () {
-    return {
-      logo
+  name: 'HeaderBoolflix',
+  data: () => ({
+    logo,
+    searchInput: ''
+  }),
+  methods: {
+    setSearch() {
+      this.$emit('set-search-input', this.searchInput)
     }
   }
 }
