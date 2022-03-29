@@ -29,6 +29,7 @@ export default {
 </script>
 
 <style lang="scss">
+// @import '../node_modules/flag-icons/sass/flag-icon.scss';
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
