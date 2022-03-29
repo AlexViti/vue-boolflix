@@ -13,13 +13,14 @@
   <br>
   <flag v-if="iso" :iso="iso" :squared='false' />
   <span v-else>{{ card.original_language }}</span> <br>
-  {{ card.vote_average }}
+  <rating-stars :vote="card.vote_average" />
 </li>
 </template>
 
 <script>
 import PosterImg from './PosterImg.vue'
 import COUNTRIES_JSON from '../../node_modules/flag-icons/country.json'
+import RatingStars from './RatingStars.vue'
 export default {
   name: 'CardBoolflix',
   props: {
@@ -62,7 +63,8 @@ export default {
     }
   },
   components: {
-    PosterImg
+    PosterImg,
+    RatingStars
   }
 }
 </script>
