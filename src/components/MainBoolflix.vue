@@ -18,7 +18,6 @@ export default {
   data: () => ({
     baseUrl: 'https://api.themoviedb.org/3/search/',
     key: '754f66aee850d9eccd363efa7feb7521',
-    lang: 'it_IT',
     types: ['movie', 'tv'],
     cards: []
   }),
@@ -29,17 +28,19 @@ export default {
     query: String
   },
   watch: {
-    query: function(newVal) {
-      if (newVal.length > 0) this.apiGetter()
-    }
-  },
-  methods: {
-    apiGetter() {
-      for (let i = 0; i < this.types.length; i++) {
-        axios.get(`${this.baseUrl}${this.types[i]}?api_key=${this.key}&query=${this.query}`)
-          .then(res => this.cards.push(res.data.results))
-          .catch(() => console.log('error'))
-      }
+    query: {
+      handler(newVal) {
+        console.log('message')
+        if (newVal.length > 0) {
+          this.cards = []
+          for (let i = 0; i < this.types.length; i++) {
+            axios.get(`${this.baseUrl}${this.types[i]}?api_key=${this.key}&query=${newVal}`)
+              .then(res => this.cards.push(res.data.results))
+              .catch(() => console.log('error'))
+          }
+        }
+      },
+      deep: true
     }
   }
 }
