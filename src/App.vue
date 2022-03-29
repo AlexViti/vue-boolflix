@@ -3,7 +3,7 @@
     <header-boolflix
       @set-search-input="setSearchInput" />
     <main-boolflix
-      :search-input="searchInput" />
+      :query="searchInput.replace(/\s{1,}/g, '+')" />
   </div>
 </template>
 
