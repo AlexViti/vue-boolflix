@@ -17,7 +17,7 @@ export default {
   }),
   methods: {
     setSearch() {
-      this.$emit('set-search-input', this.searchInput)
+      this.$emit('set-search-input', this.searchInput.trim())
     }
   }
 }
