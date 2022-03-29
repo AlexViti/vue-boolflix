@@ -1,16 +1,25 @@
 <template>
 <li class="card">
-  <span v-if="type === 'movie'" >
+  <span v-if="card.title" >
     {{ card.title }} <br>
     {{ card.original_title }} <br>
   </span>
-<span v-else></span>
-  <flag :iso="iso" /> <br>
+  <span v-else>
+    {{ card.name }} <br>
+    {{ card.original_name }} <br>
+  </span>
+  <poster-img :poster-path="card.poster_path" />
+  <!-- <img :src="`https://image.tmdb.org/t/p/w342/${card.poster_path}`" alt=""> -->
+  <br>
+  <flag v-if="iso" :iso="iso" :squared='false' />
+  <span v-else>{{ card.original_language }}</span> <br>
   {{ card.vote_average }}
 </li>
 </template>
 
 <script>
+import PosterImg from './PosterImg.vue'
+import COUNTRIES_JSON from '../../node_modules/flag-icons/country.json'
 export default {
   name: 'CardBoolflix',
   props: {
@@ -18,11 +27,42 @@ export default {
     type: String
   },
   computed: {
+    countries() {
+      return COUNTRIES_JSON.map(country => country.code)
+    },
     iso() {
-      if (this.card.original_language === 'en') return 'gb'
-      else if (this.card.original_language === 'sv') return 'se'
-      else return this.card.original_language
+      return this.isoException(this.card.original_language)
     }
+  },
+  methods: {
+    isoException(str) {
+      switch (str) {
+        case 'en':
+          return 'gb'
+        case 'sv':
+          return 'se'
+        case 'ko':
+          return 'kr'
+        case 'ja':
+          return 'jp'
+        case 'zh':
+          return 'cn'
+        case 'da':
+          return 'dk'
+        case 'hi':
+          return 'in'
+        case 'el':
+          return 'gr'
+        case 'cs':
+          return 'cz'
+        default:
+          if (this.countries.includes(str)) return str
+          else return ''
+      }
+    }
+  },
+  components: {
+    PosterImg
   }
 }
 </script>
