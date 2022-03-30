@@ -9,7 +9,7 @@
       placeholder="Titoli, persone, generi"
       autocomplete="off"
     />
-    <button @click.prevent="searchInput = ''" :class="{ hide: !searchInput }" class="btn-delete"><font-awesome-icon icon="fa-solid fa-xmark" /></button>
+    <button @click.prevent="searchInput = ''; setSearch()" :class="{ hide: !searchInput }" class="btn-delete"><font-awesome-icon icon="fa-solid fa-xmark" /></button>
   </form>
 </header>
 </template>
@@ -43,6 +43,7 @@ header {
   img {
     height: 3rem;
     transform: translateY(.2rem);
+    margin-right: 1rem;
   }
 
   form {
