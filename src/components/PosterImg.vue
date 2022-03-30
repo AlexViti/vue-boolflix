@@ -1,9 +1,9 @@
 <template>
-  <img :src="path" alt="">
+  <img :src="path" :style="{ width: `${size}px` }" alt="">
 </template>
 
 <script>
-import placeHolder from '../assets/no-poster-available.webp'
+import placeHolder from '../assets/img/no-poster-available.webp'
 export default {
   name: 'PosterImg',
   props: {
