@@ -1,5 +1,5 @@
 <template>
-<li class="card">
+<div class="card">
   <span v-if="card.title" >
     {{ card.title }} <br>
     {{ card.original_title }} <br>
@@ -14,7 +14,7 @@
   <flag v-if="iso" :iso="iso" :squared='false' />
   <span v-else>{{ card.original_language }}</span> <br>
   <rating-stars :vote="card.vote_average" />
-</li>
+</div>
 </template>
 
 <script>

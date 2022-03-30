@@ -4,10 +4,10 @@ import store from './store'
 
 // Font awesome star icons
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faStarHalf, faMagnifyingGlass, faStar as fasStar } from '@fortawesome/free-solid-svg-icons'
+import { faStarHalf, faXmark, faMagnifyingGlass, faStar as fasStar } from '@fortawesome/free-solid-svg-icons'
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-library.add(faStarHalf, faMagnifyingGlass, fasStar, farStar)
+library.add(faStarHalf, faXmark, faMagnifyingGlass, fasStar, farStar)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false

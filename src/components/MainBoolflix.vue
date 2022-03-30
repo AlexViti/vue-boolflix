@@ -1,10 +1,12 @@
 <template>
 <main>
   <div v-if="movieCards.length + tvCards.length > 0" class="wrapper">
-    <ul v-for="(type, index) in types" :key="index" class="container">
-      <h2>{{ type }}</h2>
-      <card-boolflix v-for="card in cards[index]" :key="card.id" :card="card" />
-    </ul>
+    <div v-for="(type, index) in types" :key="index">
+      <h2 v-if="cards[index].length > 0" v-html="index ? 'Serie tv': 'Film'"></h2>
+      <div  class="container">
+        <card-boolflix v-for="card in cards[index]" :key="card.id" :card="card" />
+      </div>
+    </div>
   </div>
 </main>
 </template>
@@ -53,7 +55,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-main {
-  flex-grow: 1;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 </style>

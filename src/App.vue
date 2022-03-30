@@ -30,14 +30,4 @@ export default {
 
 <style lang="scss">
 @import './assets/styles/style.scss';
-
-#app {
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 </style>

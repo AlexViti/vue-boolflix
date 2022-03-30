@@ -1,5 +1,7 @@
 <template>
-  <img :src="path" :style="{ width: `${size}px` }" alt="">
+<div class="poster" :style="{ width: `${size}px` }" :class="{ 'placeholder': path == placeHolder }">
+  <img :src="path" alt="">
+</div>
 </template>
 
 <script>
@@ -10,7 +12,8 @@ export default {
     posterPath: String
   },
   data: () => ({
-    size: 342
+    size: 342,
+    placeHolder
   }),
   computed: {
     path() {
@@ -22,5 +25,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.poster {
+  height: 513px;
 
+  &.placeholder {
+    background: #d7dae2;
+    display: grid;
+    place-items: center;
+  }
+
+  &:not(.placeholder) img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
 </style>
