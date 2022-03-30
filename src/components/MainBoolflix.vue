@@ -9,9 +9,7 @@
       </div>
     </div>
   </div>
-  <div v-else class="message">
-    <div v-html="searching ? 'Sto cercando' : 'La ricerca non ha prodotto risultati'"></div>
-  </div>
+  <div v-else class="message" v-html="searching ? 'Sto cercando' : 'La ricerca non ha prodotto risultati'"></div>
 </main>
 </template>
 
@@ -66,11 +64,16 @@ export default {
 <style lang="scss" scoped>
 main {
   display: flex;
+  justify-content: center;
 
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
+  .wrapper {
+    width: clamp(400px, 90%, 1600px);
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
   }
 
   .message {

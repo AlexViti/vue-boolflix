@@ -11,7 +11,7 @@
   <br>
   <card-flag :lang="card.original_language"/>
   <br>
-  <rating-stars :vote="card.vote_average" />
+  <rating-stars v-if="card.vote_count > 0" :vote="card.vote_average" />
   </div>
 </template>
 
