@@ -1,9 +1,10 @@
 <template>
-<span>
+<div>
+  <span>Voto: </span>
   <font-awesome-icon v-for="i in stars" :key="i" icon="fa-solid fa-star" />
   <font-awesome-icon v-if="halfStar" icon="fa-solid fa-star-half" />
   <font-awesome-icon v-for="i in emptyStars" :key="-i" icon="fa-regular fa-star" />
-</span>
+</div>
 </template>
 
 <script>

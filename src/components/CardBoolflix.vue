@@ -2,6 +2,7 @@
 <div class="card">
   <info-card class="info" :card="card"/>
   <poster-img :poster-path="card.poster_path" :sizes="sizes"/>
+  <h2 v-if="!card.poster_path" class="title">{{ card.title ?  card.title: card.name }}</h2>
 </div>
 </template>
 
@@ -36,6 +37,16 @@ export default {
 
   &:hover .info{
     visibility: visible;
+  }
+
+  .title {
+    padding: 1rem;
+    font-size: 25px;
+    position: absolute;
+    color: #000000;
+    width: 100%;
+    text-align: center;
+    bottom: 1rem;
   }
 }
 </style>

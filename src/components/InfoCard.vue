@@ -1,17 +1,14 @@
 <template>
   <div class="info-card">
-    <span v-if="card.title" >
-    {{ card.title }} <br>
-    {{ card.original_title }} <br>
-  </span>
-  <span v-else>
-    {{ card.name }} <br>
-    {{ card.original_name }} <br>
-  </span>
-  <br>
+    <div class="title">
+      <strong>Titolo:</strong> <span v-html="card.title ?  card.title: card.name"></span>
+      <div v-if="card.title ? card.title !== card.original_title :  card.name !== card.original_name">
+        <strong>Titolo originale:</strong> {{ card.original_title ?  card.original_title: card.original_name }}
+      </div>
+    </div>
   <card-flag :lang="card.original_language"/>
-  <br>
   <rating-stars v-if="card.vote_count > 0" :vote="card.vote_average" />
+  <div class="overview" v-if="card.overview"> {{ card.overview }}</div>
   </div>
 </template>
 
@@ -32,9 +29,16 @@ export default {
 
 <style lang="scss" scoped>
 .info-card {
+  padding: 1rem;
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: #000000cc ;
+  background-color: #000000cc;
+  display: flex;
+  flex-direction: column;
+
+  * + * {
+    margin-top: 1rem;
+  }
 }
 </style>

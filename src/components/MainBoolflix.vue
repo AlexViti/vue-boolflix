@@ -23,7 +23,7 @@ export default {
     types: ['movie', 'tv'],
     movieCards: [],
     tvCards: [],
-    searching: true
+    searching: false
   }),
   components: {
     CardBoolflix
@@ -41,8 +41,6 @@ export default {
       handler(newVal) {
         if (newVal.length > 0) {
           this.searching = true
-          this.movieCards = []
-          this.tvCards = []
           for (let i = 0; i < this.types.length; i++) {
             axios.get(`https://api.themoviedb.org/3/search/${this.types[i]}`, {
               params: {
