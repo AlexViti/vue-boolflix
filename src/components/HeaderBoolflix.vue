@@ -54,7 +54,7 @@ header {
     input {
       color: inherit;
       width: 100%;
-      padding: .5em 2.5em;
+      padding: .6em 2.5em;
       background-color: black;
       border: 1px solid white;
       outline: white;

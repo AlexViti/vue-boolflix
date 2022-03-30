@@ -1,5 +1,5 @@
 <template>
-<div class="poster" :style="{ width: `${size}px` }" :class="{ 'placeholder': path == placeHolder }">
+<div class="poster" :style="{ width: `${sizes.width}px`, height: `${sizes.height}px` }" :class="{ 'placeholder': path == placeHolder }">
   <img :src="path" alt="">
 </div>
 </template>
@@ -9,6 +9,7 @@ import placeHolder from '../assets/img/no-poster-available.webp'
 export default {
   name: 'PosterImg',
   props: {
+    sizes: Object,
     posterPath: String
   },
   data: () => ({
@@ -26,8 +27,6 @@ export default {
 
 <style lang="scss" scoped>
 .poster {
-  height: 513px;
-
   &.placeholder {
     background: #d7dae2;
     display: grid;
@@ -38,6 +37,7 @@ export default {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    object-position: center;
   }
 }
 </style>
