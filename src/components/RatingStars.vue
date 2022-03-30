@@ -1,8 +1,11 @@
 <template>
 <div>
   <span>Voto: </span>
-  <font-awesome-icon v-for="i in stars" :key="i" icon="fa-solid fa-star" />
-  <font-awesome-icon v-if="halfStar" icon="fa-solid fa-star-half" />
+  <font-awesome-icon v-for="i in stars" :key="i" icon="fa-solid fa-star" :style="{ color: 'yellow' }" />
+  <font-awesome-layers v-if="halfStar">
+    <font-awesome-icon icon="fa-solid fa-star-half" :style="{ color: 'yellow' }" />
+    <font-awesome-icon icon="fa-regular fa-star" :style="{ color: 'yellow' }" />
+  </font-awesome-layers>
   <font-awesome-icon v-for="i in emptyStars" :key="-i" icon="fa-regular fa-star" />
 </div>
 </template>
@@ -27,6 +30,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+  font-awesome-icon {
+    color: yellow;
+  }
 </style>

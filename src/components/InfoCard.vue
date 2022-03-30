@@ -40,5 +40,9 @@ export default {
   * + * {
     margin-top: 1rem;
   }
+
+  .overview {
+    overflow: hidden;
+  }
 }
 </style>
