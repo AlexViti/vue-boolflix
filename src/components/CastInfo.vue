@@ -1,7 +1,10 @@
 <template>
 <div v-if="cast.length > 0">
   Cast:
-  <span v-for="castMember in displayedCast" :key="castMember.id">{{ castMember.name }}, </span>
+  <span v-for="(castMember, index) in displayedCast"
+    :key="castMember.id"
+    v-html="castMember.name + (index == displayedCast.length - 1 ? '.' : ', ')"
+  />
 </div>
 </template>
 
