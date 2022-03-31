@@ -1,11 +1,7 @@
 <template>
   <div id="app">
-    <header-boolflix
-      @set-search-input="setSearchInput"
-    />
-    <main-boolflix
-      :query="searchInput.replace(/\s{1,}/g, '+')"
-    />
+    <header-boolflix />
+    <main-boolflix />
   </div>
 </template>
 
@@ -18,14 +14,6 @@ export default {
   components: {
     HeaderBoolflix,
     MainBoolflix
-  },
-  data: () => ({
-    searchInput: ''
-  }),
-  methods: {
-    setSearchInput(value) {
-      this.searchInput = value
-    }
   }
 }
 </script>

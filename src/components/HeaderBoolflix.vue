@@ -31,7 +31,7 @@ export default {
   }),
   methods: {
     setSearch() {
-      this.$emit('set-search-input', this.searchInput.trim())
+      this.$store.commit('changeSearchStr', this.searchInput)
     }
   }
 }

@@ -23,16 +23,15 @@ export default {
     types: ['movie', 'tv'],
     movieCards: [],
     tvCards: [],
-    myKey: '754f66aee850d9eccd363efa7feb7521',
     searching: false
   }),
   components: {
     CardBoolflix
   },
-  props: {
-    query: String
-  },
   computed: {
+    query() {
+      return this.$store.getters.getQuery
+    },
     cards() {
       return [this.movieCards, this.tvCards]
     }
@@ -45,7 +44,7 @@ export default {
           for (let i = 0; i < this.types.length; i++) {
             axios.get(`https://api.themoviedb.org/3/search/${this.types[i]}`, {
               params: {
-                api_key: this.myKey,
+                api_key: this.$store.state.myKey,
                 query: newVal,
                 language: 'it-IT'
               }

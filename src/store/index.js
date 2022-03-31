@@ -7,12 +7,17 @@ Vue.use(FlagIcon)
 
 export default new Vuex.Store({
   state: {
-    searchStr: ''
+    searchStr: '',
+    myKey: '754f66aee850d9eccd363efa7feb7521'
   },
-  getters: {},
+  getters: {
+    getQuery(state) {
+      return state.searchStr.trim().replace(/\s{1,}/g, '+')
+    }
+  },
   mutations: {
-    changeSearchStr(val) {
-      this.searchStr = val
+    changeSearchStr(state, newVal) {
+      state.searchStr = newVal
     }
   },
   actions: {},
