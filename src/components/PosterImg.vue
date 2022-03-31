@@ -1,6 +1,6 @@
 <template>
 <div class="poster" :style="{ width: `${sizes.width}px`, height: `${sizes.height}px` }" :class="{ 'placeholder': path == placeHolder }">
-  <img :src="path" alt="">
+  <img :src="path" alt="" />
 </div>
 </template>
 
@@ -13,12 +13,11 @@ export default {
     posterPath: String
   },
   data: () => ({
-    size: 342,
     placeHolder
   }),
   computed: {
     path() {
-      if (this.posterPath) return `https://image.tmdb.org/t/p/w${this.size}/${this.posterPath}`
+      if (this.posterPath) return `https://image.tmdb.org/t/p/w${this.sizes.width}/${this.posterPath}`
       else return placeHolder
     }
   }

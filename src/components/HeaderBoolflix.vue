@@ -5,11 +5,17 @@
     <button type='submit' @click.prevent="setSearch" class="btn-search"><font-awesome-icon icon="fa-solid fa-magnifying-glass" /></button>
     <input v-model="searchInput"
       @keyup.enter="setSearch"
-      type="text" name="search" id="search"
+      type="text" name="search"
+      id="search" autocomplete="off"
       placeholder="Titoli, persone, generi"
-      autocomplete="off"
     />
-    <button @click.prevent="searchInput = ''; setSearch()" :class="{ hide: !searchInput }" class="btn-delete"><font-awesome-icon icon="fa-solid fa-xmark" /></button>
+    <button
+      @click.prevent="searchInput = ''; setSearch()"
+      :class="{ hide: !searchInput }"
+      class="btn-delete"
+    >
+      <font-awesome-icon icon="fa-solid fa-xmark" />
+    </button>
   </form>
 </header>
 </template>

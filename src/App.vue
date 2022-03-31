@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <header-boolflix
-      @set-search-input="setSearchInput" />
+      @set-search-input="setSearchInput"
+    />
     <main-boolflix
-      :query="searchInput.replace(/\s{1,}/g, '+')" />
+      :query="searchInput.replace(/\s{1,}/g, '+')"
+    />
   </div>
 </template>
 

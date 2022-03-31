@@ -9,6 +9,10 @@ html {
 	color: white;
 }
 
+body {
+	background-color: $bg-main;
+}
+
 #app {
 	min-height: 100vh;
  
@@ -21,10 +25,4 @@ html {
 
 header {
 	background-color: $bg-header;
-}
-
-main {
-	background-color: $bg-main;
-	flex-grow: 1;
-	height: 100%;
 }
