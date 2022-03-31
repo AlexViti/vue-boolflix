@@ -6,9 +6,15 @@ Vue.use(Vuex)
 Vue.use(FlagIcon)
 
 export default new Vuex.Store({
-  state: {},
+  state: {
+    searchStr: ''
+  },
   getters: {},
-  mutations: {},
+  mutations: {
+    changeSearchStr(val) {
+      this.searchStr = val
+    }
+  },
   actions: {},
   modules: {}
 })

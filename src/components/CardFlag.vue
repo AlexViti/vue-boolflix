@@ -1,8 +1,8 @@
 <template>
 <div class="language">
-  <span>Lingua originale:  </span>
+  <span v-html="'Lingua originale:  '"></span>
   <flag v-if="iso" :iso="iso" :squared='false' />
-  <span v-else>{{ lang }}</span>
+  <span v-else v-html="lang" />
 </div>
 </template>
 

@@ -1,10 +1,10 @@
 <template>
 <div>
   <span>Voto: </span>
-  <font-awesome-icon v-for="i in stars" :key="i" icon="fa-solid fa-star" :style="{ color: 'yellow' }" />
+  <font-awesome-icon v-for="i in stars" :key="i" icon="fa-solid fa-star" />
   <font-awesome-layers v-if="halfStar">
-    <font-awesome-icon icon="fa-solid fa-star-half" :style="{ color: 'yellow' }" />
-    <font-awesome-icon icon="fa-regular fa-star" :style="{ color: 'yellow' }" />
+    <font-awesome-icon icon="fa-solid fa-star-half" />
+    <font-awesome-icon icon="fa-regular fa-star" />
   </font-awesome-layers>
   <font-awesome-icon v-for="i in emptyStars" :key="-i" icon="fa-regular fa-star" />
 </div>
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  font-awesome-icon {
-    color: yellow;
-  }
+.svg-inline--fa {
+  color: yellow;
+}
 </style>
