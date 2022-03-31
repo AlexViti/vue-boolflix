@@ -9,12 +9,13 @@
   <card-flag :lang="card.original_language"/>
   <rating-stars v-if="card.vote_count > 0" :vote="card.vote_average" />
   <cast-info :id="card.id" :type="type" />
-  <div class="overview" v-if="card.overview" v-html="card.overview" />
+  <card-overview v-if="card.overview" :overview="card.overview" :id="card.id" />
   </div>
 </template>
 
 <script>
 import CardFlag from './CardFlag.vue'
+import CardOverview from './CardOverview.vue'
 import CastInfo from './CastInfo.vue'
 import RatingStars from './RatingStars.vue'
 export default {
@@ -26,7 +27,8 @@ export default {
   components: {
     RatingStars,
     CardFlag,
-    CastInfo
+    CastInfo,
+    CardOverview
   }
 }
 </script>
@@ -43,15 +45,6 @@ export default {
 
   * + * {
     margin-top: 1rem;
-  }
-
-  .overview {
-    $lineheight: 2.5ex;
-
-    overflow: hidden;
-    position: relative;
-    line-height: $lineheight;
-    max-height: $lineheight * 10;
   }
 }
 </style>
