@@ -1,6 +1,6 @@
 <template>
 <div class="card">
-  <info-card class="info" :card="card"/>
+  <info-card class="info" :card="card" :type="type" />
   <poster-img :poster-path="card.poster_path" :sizes="sizes" />
   <h2 v-if="!card.poster_path" class="title" v-html="card.title ? card.title: card.name" />
 </div>

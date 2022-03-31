@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import FlagIcon from 'vue-flag-icon'
+// import axios from 'axios'
 
 Vue.use(Vuex)
 Vue.use(FlagIcon)
@@ -20,6 +21,10 @@ export default new Vuex.Store({
       state.searchStr = newVal
     }
   },
-  actions: {},
+  actions: {
+    // fetchData(baseUrl, param) {
+    //   axios.get(baseUrl + this.state.myKey)
+    // }
+  },
   modules: {}
 })

@@ -5,7 +5,7 @@
     <div v-for="(type, index) in types" :key="index">
       <h2 v-if="cards[index].length > 0" v-html="index ? 'Serie tv': 'Film'" />
       <div  class="container">
-        <card-boolflix v-for="card in cards[index]" :key="card.id" :card="card" />
+        <card-boolflix v-for="card in cards[index]" :key="card.id" :card="card" :type="types[index]" />
       </div>
     </div>
   </div>

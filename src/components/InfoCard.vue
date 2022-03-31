@@ -8,7 +8,7 @@
     </div>
   <card-flag :lang="card.original_language"/>
   <rating-stars v-if="card.vote_count > 0" :vote="card.vote_average" />
-  <cast-info />
+  <cast-info :id="card.id" :type="type" />
   <div class="overview" v-if="card.overview" v-html="card.overview" />
   </div>
 </template>
@@ -20,7 +20,8 @@ import RatingStars from './RatingStars.vue'
 export default {
   name: 'InfoCard',
   props: {
-    card: Object
+    card: Object,
+    type: String
   },
   components: {
     RatingStars,
