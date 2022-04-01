@@ -1,7 +1,8 @@
 <template>
 <div>
-  <div class="overview" :id="'id' + id" v-show="lines <= maxLines" :style="{ '--max-lines': maxLines }" v-html="overview" />
-  <div class="overflow" v-show="lines > maxLines" :style="{ '--max-lines': maxLines }" v-html="overview" />
+  <div class="overflow" :style="{ '--max-lines': maxLines }">
+    <div class="overview" :id="'id' + id" v-html="overview" />
+  </div>
   <span v-if="lines > maxLines">...</span>
 </div>
 </template>
@@ -30,13 +31,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.overview {
-  line-height: 2.5ex;
+@supports (-webkit-line-clamp: 3) and (display: -webkit-box) {
+  .overview {
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
-
-.overflow {
-  line-height: 2.5ex;
-  max-height: calc(2.5ex * var(--max-lines));
-  overflow: hidden;
+@supports (not(-webkit-line-clamp: 3)) or (not(display: -webkit-box)) {
+  .overflow {
+    line-height: 2.5ex;
+    height: calc(2.5ex * var(--max-lines));
+    overflow: hidden;
+  }
 }
 </style>
