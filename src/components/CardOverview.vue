@@ -39,6 +39,7 @@ export default {
     overflow: hidden;
   }
 }
+
 @supports (not(-webkit-line-clamp: 3)) or (not(display: -webkit-box)) {
   .overflow {
     line-height: 2.5ex;

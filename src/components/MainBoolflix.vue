@@ -1,9 +1,9 @@
 <template>
 <main>
   <div v-if="query.length == 0" class="message" v-html="'Effettua una ricerca'" />
-  <div v-else-if="movieCards.length + tvCards.length > 0" class="wrapper">
+  <div v-else-if="true" class="wrapper">
     <div v-for="(type, index) in types" :key="index">
-      <h2 v-if="cards[index].length > 0" v-html="index ? 'Serie tv': 'Film'" />
+      <h2 v-if="true" v-html="index ? 'Serie tv': 'Film'" />
       <div  class="container">
         <card-boolflix v-for="card in cards[index]" :key="card.id" :card="card" :type="types[index]" />
       </div>
@@ -14,15 +14,13 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import CardBoolflix from './CardBoolflix.vue'
 
 export default {
   name: 'MainBoolflix',
   data: () => ({
     types: ['movie', 'tv'],
-    movieCards: [],
-    tvCards: [],
     searching: false
   }),
   components: {
@@ -33,7 +31,7 @@ export default {
       return this.$store.getters.getQuery
     },
     cards() {
-      return [this.movieCards, this.tvCards]
+      return [this.$store.state.movieCards, this.$store.state.tvCards]
     }
   },
   watch: {
@@ -41,15 +39,9 @@ export default {
       handler(newVal) {
         if (newVal.length > 0) {
           this.searching = true
+          this.$store.commit('deleteCards')
           for (let i = 0; i < this.types.length; i++) {
-            axios.get(`https://api.themoviedb.org/3/search/${this.types[i]}`, {
-              params: {
-                api_key: this.$store.state.myKey,
-                query: newVal,
-                language: 'it-IT'
-              }
-            }).then(res => { this[this.types[i] + 'Cards'] = res.data.results }).catch(() => console.log('error'))
-              .then(() => { this.searching = false })
+            this.$store.dispatch('fetchCards', { typeOf: `search/${this.types[i]}`, params: { query: newVal, language: 'it-IT' } })
           }
         }
       },
